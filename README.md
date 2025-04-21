@@ -1,127 +1,134 @@
-# Networking-AMKL
+# 🧱 Networking-AMKL
 
-Đây là branch hướng dẫn về các phần mềm ảo hóa 
-
-## 🚀 VMware Worstation Pro và Proxmox VE 8
-
-# 🖥️ VMware Workstation Pro là gì?
-
-**VMware Workstation Pro** là một phần mềm ảo hóa dạng **Type 2 hypervisor**, được cài đặt như một ứng dụng trên hệ điều hành Windows hoặc Linux. Nó cho phép người dùng tạo và chạy nhiều máy ảo (VM) trên một máy tính cá nhân.
-
-Phần mềm này rất phổ biến trong môi trường **lab, thử nghiệm, học tập hoặc phát triển phần mềm**, nhờ giao diện đồ họa thân thiện và dễ sử dụng. Tuy nhiên, vì chạy trên nền hệ điều hành host, hiệu năng sẽ thấp hơn so với các hypervisor cấp thấp (bare-metal).
-
-> 🔧 **Tính năng nổi bật:**
-> - Hỗ trợ nhiều hệ điều hành guest: Windows, Linux, BSD, v.v.
-> - Snapshot máy ảo
-> - Kéo/thả file giữa host và guest
-> - Hỗ trợ network ảo (NAT, Host-only, Bridge)
+> Đây là branch hướng dẫn về các phần mềm ảo hóa phổ biến như VMware Workstation Pro và Proxmox VE 8. Tài liệu này phù hợp cho người mới bắt đầu làm lab, thử nghiệm, hoặc xây dựng môi trường ảo hóa cho học tập và nghiên cứu.
 
 ---
 
-# 🖧  Proxmox VE 8 là gì?
+## 📚 Mục Lục
 
-**Proxmox Virtual Environment (Proxmox VE)** là một nền tảng ảo hóa mã nguồn mở dạng **Type 1 hypervisor (bare-metal)**. Phiên bản 8 là bản mới nhất tính đến hiện tại. Proxmox VE kết hợp cả **ảo hóa bằng KVM (Kernel-based Virtual Machine)** và **container LXC (Linux Containers)**, cung cấp một giải pháp mạnh mẽ cho việc triển khai máy chủ ảo trong môi trường production hoặc lab chuyên sâu.
+- [🧱 Networking-AMKL](#-networking-amkl)
+  - [📚 Mục Lục](#-mục-lục)
+  - [🚀 VMware và Proxmox VE](#-vmware-và-proxmox-ve)
+    - [🖥 VMware Workstation Pro là gì?](#-vmware-workstation-pro-là-gì)
+    - [🖧 Proxmox VE 8 là gì?](#-proxmox-ve-8-là-gì)
+  - [🔍 So sánh VMware Workstation Pro và Proxmox VE 8](#-so-sánh-vmware-workstation-pro-và-proxmox-ve-8)
+  - [🔗 Tải File Cần Thiết](#-tải-file-cần-thiết)
+  - [💻 Hướng Dẫn Cài Đặt](#-hướng-dẫn-cài-đặt)
+    - [📁 Yêu Cầu Hệ Thống](#-yêu-cầu-hệ-thống)
+    - [🖥 Cài Đặt VMware Workstation Pro](#-cài-đặt-vmware-workstation-pro)
+      - [Các bước cài đặt trên Linux](#các-bước-cài-đặt-trên-linux)
+    - [🧑‍🔧 Cài Đặt Proxmox VE 8 (Bare-metal)](#-cài-đặt-proxmox-ve-8-bare-metal)
 
-Proxmox VE được cài trực tiếp lên phần cứng vật lý, không cần hệ điều hành trung gian, giúp tối ưu hiệu năng và tài nguyên. Giao diện quản trị qua trình duyệt cực kỳ trực quan, kèm theo nhiều tính năng nâng cao như: High Availability (HA), live migration, backup, snapshot, firewall, và cluster management.
+---
+
+## 🚀 VMware và Proxmox VE
+
+### 🖥 VMware Workstation Pro là gì?
+
+**VMware Workstation Pro** là một phần mềm ảo hóa dạng **Type 2 hypervisor**, cài như ứng dụng trên Windows hoặc Linux. Nó cho phép bạn tạo và chạy nhiều máy ảo (VM) trên máy tính cá nhân.
+
+> **Ứng dụng phổ biến:** lab, thử nghiệm, học tập, phát triển phần mềm.
+
+> 🔧 **Tính năng nổi bật:**
+>
+> - Hỗ trợ nhiều hệ điều hành guest: Windows, Linux, BSD,...
+> - Snapshot máy ảo
+> - Kéo/thả file giữa host và guest
+> - Hỗ trợ nhiều dạng mạng ảo (NAT, Host-only, Bridge)
+
+---
+
+### 🖧 Proxmox VE 8 là gì?
+
+**Proxmox Virtual Environment (Proxmox VE)** là một nền tảng ảo hóa mã nguồn mở dạng **Type 1 hypervisor (bare-metal)**, kết hợp cả **KVM** và **LXC**.
+
+> Proxmox VE 8 được cài trực tiếp lên phần cứng vật lý, không cần OS trung gian → hiệu năng cao, ổn định cho môi trường production.
 
 > 🚀 **Tính năng nổi bật:**
-> - Web GUI quản lý mạnh mẽ
-> - Quản lý cả VM (KVM) và Container (LXC)
-> - Hỗ trợ clustering, HA, và Ceph storage
-> - Backup/restore theo lịch trình
-> - Mã nguồn mở và miễn phí (có bản trả phí cho hỗ trợ doanh nghiệp)
+>
+> - Web GUI quản lý hiện đại
+> - Hỗ trợ cả VM (KVM) và Container (LXC)
+> - Hỗ trợ clustering, HA, Ceph Storage
+> - Tích hợp backup/snapshot
+> - Mã nguồn mở, miễn phí (bản enterprise có hỗ trợ kỹ thuật)
+
+---
 
 ## 🔍 So sánh VMware Workstation Pro và Proxmox VE 8
 
-| Tiêu chí | 🖥️ VMware Workstation Pro | 🖧 Proxmox VE 8 |
+| Tiêu chí | 🖥 VMware Workstation Pro | 🖧 Proxmox VE 8 |
 |---------|---------------------------|----------------|
-| **Loại Hypervisor** | Type 2 (chạy trên OS) | Type 1 (bare-metal, chạy trực tiếp trên phần cứng) |
-| **Cài đặt trên** | Windows / Linux (như app desktop) | Máy chủ vật lý (bare-metal) |
-| **Mục tiêu sử dụng** | Ảo hóa cho desktop/lab cá nhân | Ảo hóa server, hạ tầng production |
-| **Hiệu năng** | Trung bình (chạy thông qua hệ điều hành host) | Cao (chạy trực tiếp trên phần cứng) |
-| **Giao diện** | GUI desktop (native app) | Web-based GUI (quản lý qua trình duyệt) |
-| **Hỗ trợ container (LXC)** | ❌ Không hỗ trợ | ✅ Có sẵn |
-| **Hỗ trợ KVM / QEMU** | ❌ Không | ✅ Dùng KVM/QEMU trực tiếp |
-| **Hỗ trợ HA / Cluster** | ❌ Không | ✅ Có tích hợp cluster, HA, live migration |
-| **Giá** | Trả phí, nhưng các phiên bảng mới gần đây đã miễn phí rồi | Miễn phí (có bản enterprise trả phí để support) |
-
-## 🔗 Tải file OVA
-
-Tải tại đây: [Proxmox-VE8 link](https://www.proxmox.com/en/downloads)
-	     [VMware Workstation Pro](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
-	     [Google Drive link](https://drive.google.com/drive/u/0/folders/1wC-rrIvU577-PyBZiMVC7315iHevf4v9)
-
-## 💻 Hướng Dẫn Cài Đặt Lab Ảo Hóa
-
-## 📌 Giới Thiệu
-
-Dự án này cung cấp lab ảo hoá cho việc học tập và thử nghiệm với 2 lựa chọn:
-- 🖥️ **VMware Workstation Pro** (dành cho máy cá nhân)
-- 🧑‍🔧 **Proxmox VE 8** (dành cho máy chủ hoặc lab nâng cao)
+| **Loại Hypervisor** | Type 2 (chạy trên OS) | Type 1 (bare-metal) |
+| **Cài đặt trên** | Windows / Linux (app desktop) | Máy chủ vật lý |
+| **Mục tiêu sử dụng** | Desktop / Lab cá nhân | Server / Hạ tầng production |
+| **Hiệu năng** | Trung bình | Cao |
+| **Giao diện** | GUI Desktop | Web-based GUI |
+| **Hỗ trợ Container (LXC)** | ❌ Không | ✅ Có |
+| **Hỗ trợ KVM / QEMU** | ❌ Không | ✅ Có |
+| **Cluster, HA, Live migration** | ❌ Không | ✅ Có |
+| **Chi phí** | Trả phí (gần đây miễn phí) | Miễn phí (bản enterprise có phí) |
 
 ---
 
-## 📁 Yêu Cầu
+## 🔗 Tải File Cần Thiết
 
-- Bộ xử lý hỗ trợ ảo hóa (Intel VT-x hoặc AMD-V)
-- RAM tối thiểu 8GB (khuyến nghị 16GB)
-- Dung lượng trống ≥ 50GB
-- File `.ova` hoặc `.iso` cài đặt hệ thống
-
----
-
-## 🔽 Tải File Cần Thiết
-
-| Tên File | Link Tải | Ghi chú |
-|----------|----------|---------|
-| Proxmox VE ISO | [Link bên trên](#🔗 Tải file OVA) | File `.iso` dùng để boot cài Proxmox |
-| VMware Workstation Pro (.ova) || Máy ảo đã cấu hình sẵn |
+- [📥 Proxmox VE 8](https://www.proxmox.com/en/downloads)
+- [📥 VMware Workstation Pro](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
+- [📥 Google Drive (file OVA)](https://drive.google.com/drive/u/0/folders/1wC-rrIvU577-PyBZiMVC7315iHevf4v9)
 
 ---
 
-## 🖥️ Cài Đặt với VMware Workstation Pro
+## 💻 Hướng Dẫn Cài Đặt
 
-### Bước 1: Nhập File OVA
+### 📁 Yêu Cầu Hệ Thống
 
-1. Mở VMware Workstation Pro.
-2. Chọn `File > Open`, trỏ đến file `.ova`.
-3. Chọn nơi lưu máy ảo và nhấn `Import`.
-4. Khởi động máy ảo và cấu hình nếu cần.
-
-### Bước 2: Cấu Hình Mạng
-
-- Cấu hình chế độ **Bridged** hoặc **NAT** tùy vào môi trường.
-- Kiểm tra IP và kết nối mạng.
+- CPU hỗ trợ ảo hóa (Intel VT-x / AMD-V)
+- RAM: Tối thiểu **8GB** (khuyến nghị **16GB** trở lên)
+- Dung lượng ổ cứng trống: **≥ 50GB**
+- File cài đặt: `.iso` hoặc `.ova`
 
 ---
 
-## 🧑‍🔧 Cài Đặt Proxmox VE 8 (Bare-metal)
+### 🖥 Cài Đặt VMware Workstation Pro
 
-### Bước 1: Tạo USB Boot
+> ✅ **Windows**: Cài đặt bình thường bằng file `.exe`  
+> 🐧 **Linux**: Cần cài thêm một số gói phụ thuộc trước khi sử dụng
 
-- Dùng [balenaEtcher](https://etcher.io/) hoặc Rufus để tạo USB từ file `.iso`.
+#### Các bước cài đặt trên Linux
 
-### Bước 2: Cài Đặt Proxmox
+1. **Cập nhật hệ thống:**
 
-1. Boot máy từ USB.
-2. Chọn "Install Proxmox VE".
-3. Làm theo hướng dẫn → Đặt hostname, password, IP tĩnh.
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
 
-### Bước 3: Truy cập Web UI
+2. **Cài đặt kernel headers tương ứng với phiên bản đang dùng:**
 
-- Truy cập tại: `https://IP-may-server:8006`
-- Đăng nhập bằng `root` và mật khẩu đã tạo.
+   ```bash
+   uname -r  # Xem phiên bản kernel
+   sudo apt install linux-headers-$(uname -r)
+   ```
+
+3. **Cài đặt các gói phụ thuộc cần thiết:**
+
+   ```bash
+   sudo apt install build-essential dkms linux-headers-$(uname -r)
+   ```
+
+4. **Khắc phục lỗi thiếu 2 gói vmware khi chạy: Clone và cài đặt thủ công các module:**
+
+   - [🔗 Link 1 - mkubecek/vmware-host-modules](https://github.com/mkubecek/vmware-host-modules/tree/master)
+
+   - [🔗 Link 2 - bytium/vm-host-modules](https://github.com/bytium/vm-host-modules/)
+
+5. **Hoàn tất và khởi chạy VMware như bình thường.**
 
 ---
 
-## 🛠️ Một Số Lệnh Hữu Ích (Proxmox)
+### 🧑‍🔧 Cài Đặt Proxmox VE 8 (Bare-metal)
 
-```bash
-# Cập nhật hệ thống
-apt update && apt full-upgrade -y
+> Bạn có thể cài đặt trực tiếp lên máy vật lý hoặc test lab bằng VMware, Mình có thầy một anh dựng Proxmox VE8 trên VMware Workstation Pro khá hay, nếu mọi người muốn tìm hiểu về Proxmox thì theo link sau:
 
-# Xem trạng thái VM
-qm list
+- 🔍 Video hướng dẫn cài đặt Proxmox trên VMware: [🎥 Xem tại đây](https://www.youtube.com/watch?v=F0Ta8pMyo7w&t=2158s)
 
-# Dừng VM có ID 100
-qm stop 100
+> Nếu bạn muốn dựng lab lớn, Proxmox VE là phần mềm mã nguồn mở rất đáng giá để thay thế cho VMware ESXi.

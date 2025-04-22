@@ -188,6 +188,6 @@ sudo bash install_pnetlab_v6.sh
 ![Exmaple](images/pnetlab_4.png)
 
 - [📥 CLI Download](https://github.com/ishare2-org/ishare2-cli) Khi cài nhớ chọn channel download là `Google Drive` nghe đừng chọn cái `default`.
-- Nếu khi cài đặt xong mà download image bị lỗi `erros` thì chúng ta run lại lệnh `ishare2 config`để config lại và thử pull image về coi, nếu lỗi thì chúng ta phải xóa thư mục CLI cũ đi: `rm -rf /opt/ishare2/CLI/` và `wget -O /usr/sbin/ishare2 https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2 && chmod +x /usr/sbin/ishare2 && ishare2`, sau đó thử lại, nếu k đc nữa thì dùng cái GUI, còn k đc nữa thì đưa t fix cho 😃.
+- Nếu khi cài đặt xong mà download image bị lỗi `erros` thì chúng ta run lại lệnh `ishare2 config`để config lại và thử pull image về coi, nếu lỗi thì chúng ta phải xóa thư mục CLI cũ đi: `rm -rf /opt/ishare2/CLI/` và `wget -O /usr/sbin/ishare2 https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2 && chmod +x /usr/sbin/ishare2 && ishare2`, sau đó thử lại, hoặc chúng ta đổi channel sang default thay vì google drive nha , nếu k đc nữa thì dùng cái GUI, còn k đc nữa thì đưa t fix cho 😃.
 - Một cái nữa là khi cài lỗi thì mình cài lại lần nữa nó hiện already exist thì mình thêm `--overwrite` nghe.
 ![Example](images/pnetlab_5.png)

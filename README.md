@@ -121,7 +121,7 @@
 - **Do mình chỉ sử dụng PNETlab nên mình sẽ hướng dẫn về PNETlab**
 
 > ✅ **OVA**: Thông thường với đường link ở trên bạn sẽ cài đặt được PNETlab bằng cách import file OVA vào máy ảo VMware Workstation Pro hoặc Proxmox VE 8 nhưng phiên bản chỉ có thể cài từ 4.2.10 - 5.3.13 mà thôi nếu ai chỉ muốn dùng các phiên bản ấy thì cứ import và dùng bth, tiện đây, mình sẽ hướng dẫn các bạn cài theo hướng manual để được phiên bản mới nhất.
-> 🐧 **Linux**: Vì PNETlab_v6 chỉ chạy trên ubuntu phiên bản 20 (Focal) nên mình sẽ cài bảng đó và hướng dẫn step-by-step.
+> 🐧 **Linux**: Vì PNETlab_v6 chỉ chạy trên ubuntu phiên bản 20 (Focal) nên mình sẽ cài bản đó và hướng dẫn step-by-step.
 
 #### Các bước cài đặt PNETlab_v6
 

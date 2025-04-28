@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="/Firewall/images/fortinet.png" alt="pfSense image" width="400"/>
+  <img src="/images/fortinet.webp" alt="pfSense image" width="400"/>
 
 </div>
 
@@ -10,7 +10,7 @@
 
 ## 🔰 Fortinet là gì?
 
-**Fortinet** là một tập đoàn công nghệ bảo mật nổi tiếng toàn cầu, chuyên cung cấp các giải pháp an ninh mạng toàn diện. Sản phẩm nổi bật nhất là **FortiGate** – một **Next-Generation Firewall (NGFW)** mạnh mẽ, tích hợp nhiều tính năng bảo mật trong một thiết bị duy nhất.
+**Fortinet** là một tập đoàn công nghệ bảo mật nổi tiếng toàn cầu, chuyên cung cấp các giải pháp an ninh mạng toàn diện. Sản phẩm nổi bật nhất là **FortiGate** – một **Next-Generation (NGFW)** mạnh mẽ, tích hợp nhiều tính năng bảo mật trong một thiết bị duy nhất.
 
 > FortiGate được sử dụng phổ biến trong các doanh nghiệp, tổ chức chính phủ và môi trường mạng phức tạp đòi hỏi mức độ bảo mật cao.
 
@@ -33,7 +33,7 @@
 - FortiGate cung cấp **Web GUI** và **CLI** để cấu hình thiết bị.
 - Có thể quản lý tập trung qua **FortiManager**, hỗ trợ các doanh nghiệp lớn.
   
-![FortiGate GUI Preview](/Firewall/images/fortinet.png)
+![FortiGate GUI Preview](/images/fortinet_gui.webp)
 
 ---
 

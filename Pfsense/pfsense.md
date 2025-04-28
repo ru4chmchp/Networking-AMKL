@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="/Firewall/images/pfsense.png" alt="pfSense image" width="400"/>
+  <img src="/images/pfsense.webp" alt="pfSense image" width="400"/>
 
 </div>
 
@@ -33,7 +33,7 @@
 - pfSense cung cấp **Web GUI** trực quan, dễ sử dụng.
 - Có thể cấu hình mọi chức năng từ giao diện web: firewall rules, NAT, DHCP, VPN,...
   
-![pfSense GUI Preview](/Firewall/images/pfsense-gui.png)
+![pfSense GUI Preview](/images/pfsense-gui.webp)
 
 ---
 

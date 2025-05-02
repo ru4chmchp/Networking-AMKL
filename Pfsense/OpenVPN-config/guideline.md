@@ -149,8 +149,7 @@ Trên Linux, Sau khi tải về và giải nén, bạn sẽ có 2 file:
 
  Kết quả kết nối thành công:
 
-  <div align="center"> <img src="/images/success.webp" width="100%"/
-  > </div> 
+  <div align="center"> <img src="/images/success.webp" width="100%"/> </div> 
 
   Kiểm tra trạng thái trên pfSense
   

@@ -8,5 +8,5 @@
 
 - [🖧 Network Emulation Laboratory](https://github.com/ru4chmchp/Networking-AMKL/tree/Network-Emulation-Laboratory)
 
-- [🔥Firewalls](https://github.com/ru4chmchp/Networking-AMKL/tree/Firewalls)
+- [🔥 Firewalls](https://github.com/ru4chmchp/Networking-AMKL/tree/Firewalls)
 ---

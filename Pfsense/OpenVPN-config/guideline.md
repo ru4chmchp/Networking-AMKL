@@ -111,49 +111,50 @@ certctl rehash
 
 Vào: `VPN > OpenVPN > Wizards`
 
-<div align="center"> <img src="/images/openvpn_config.webp" width="100%"/> </div> 
+<div align="center"> <img src="/images/openvpn_config.webp" width="100%"/> </div>
 
 #### 4.2 Xem lại cấu hình ở phần Servers
 
 Vào: ` VPN > OpenVPN > Servers`
 
-<div align="center"> <img src="/images/openvpn_config2.webp" width="100%"/> </div> 
+<div align="center"> <img src="/images/openvpn_config2.webp" width="100%"/> </div>
 
 > Lưu ý 2 mục quan trọng:
 
-+ IPv4 Tunnel Network: mạng ảo dành cho client VPN
-Ví dụ: 10.0.8.0/24
+- IPv4 Tunnel Network: mạng ảo dành cho client VPN
+  Ví dụ: 10.0.8.0/24
 
-+ IPv4 Local Network: mạng nội bộ thật phía sau pfSense
-Ví dụ: 192.168.74.0/24
+- IPv4 Local Network: mạng nội bộ thật phía sau pfSense
+  Ví dụ: 192.168.74.0/24
 
- <div align="center"> <img src="/images/open_vpn_final.webp" width="100%"/> </div> 
+ <div align="center"> <img src="/images/open_vpn_final.webp" width="100%"/> </div>
 
 ### 📤 Bước 5: Xuất file cấu hình cho client
 
 Vào: `VPN > OpenVPN > Client Export`
 
- Chọn cấu hình Bundled Configuration phù hợp với hệ điều hành (Linux) (Vì tôi dùng linux).
+Chọn cấu hình Bundled Configuration phù hợp với hệ điều hành (Linux) (Vì tôi dùng linux).
 
-  <div align="center"> <img src="/images/export_config.webp" width="100%"/> </div> 
+  <div align="center"> <img src="/images/export_config.webp" width="100%"/> </div>
 
 ## 🧪 Kiểm tra kết nối từ phía Client
 
 Trên Linux, Sau khi tải về và giải nén, bạn sẽ có 2 file:
 
- <div align="center"> <img src="/images/2files.webp" width="100%"/> </div> 
+ <div align="center"> <img src="/images/2files.webp" width="100%"/> </div>
 
 ```bash
  sudo openvpn --config pfSense-UDP4-1194-vpn01.ovpn
- ```
+```
 
- Kết quả kết nối thành công:
+Kết quả kết nối thành công:
 
-  <div align="center"> <img src="/images/success.webp" width="100%"/> </div> 
+  <div align="center"> <img src="/images/success.webp" width="100%"/> </div>
 
-  Kiểm tra trạng thái trên pfSense
-  
-<div align="center"> <img src="/images/congratulation.webp" width="100%"/> </div> 
+Kiểm tra trạng thái trên pfSense
+
+<div align="center"> <img src="/images/congratulation.webp" width="100%"/> </div>
 
 ## ✅ Kết luận
+
 Bạn đã cấu hình thành công OpenVPN truy cập từ xa trên pfSense. Từ client bên ngoài, bạn có thể truy cập vào mạng nội bộ một cách bảo mật và an toàn qua VPN tunnel.

@@ -1,8 +1,8 @@
-# 🌐 VLAN - TRUNK - ACCESS - DHCP
+# VLAN - TRUNK - ACCESS - DHCP
 
 ---
 
-## 📋 Mục tiêu
+## Mục tiêu
 
 Hướng dẫn tạo VLAN, cấu hình DHCP Server trên pfSense để cấp IP cho các máy trong từng VLAN.
 
@@ -16,7 +16,7 @@ Hướng dẫn tạo VLAN, cấu hình DHCP Server trên pfSense để cấp IP 
 
 ---
 
-## 🛠️ Các bước thực hiện
+## Các bước thực hiện
 
 ### 1. Chuẩn bị môi trường
 
@@ -109,6 +109,6 @@ Switch(config-if)# switchport mode trunk
 
  <div align="center"> <img src="/images/dhcp_allocate_ip.webp" alt="DHCP Allocate IP" width="80%"/> </div> 
 
-## ✅ Hoàn thành!
+## Hoàn thành!
 
 Giờ đây các thiết bị thuộc từng VLAN đã tự động nhận IP từ pfSense qua DHCP Server 🎉.

@@ -1,6 +1,6 @@
-# ⚓ Port-forwarding
+# Port-forwarding
 
-## 🎯 Mục tiêu
+## Mục tiêu
 
 Mục tiêu là **truy cập từ WAN interface** với IP WAN `10.10.10.2:8080`  
 → vào **LAN interface** IP `192.168.1.1:80` thông qua port forwarding.
@@ -9,7 +9,7 @@ Thao tác khá đơn giản, chỉ cần vài bước cấu hình.
 
 ---
 
-## 🗺 Topology Lab
+## Topology Lab
 
 <div align="center">
   <img src="/images/topology_portforwarding.webp" alt="Topology Port Forwarding" width="100%"/>
@@ -17,9 +17,9 @@ Thao tác khá đơn giản, chỉ cần vài bước cấu hình.
 
 ---
 
-## 🛠 Các bước thực hiện
+## Các bước thực hiện
 
-### 1️⃣ Tạo Port Forwarding Rule
+### 1️. Tạo Port Forwarding Rule
 
 Vào:
 
@@ -40,7 +40,7 @@ Firewall > NAT > Port Forward
 > Vì chúng ta muốn người ngoài truy cập thông qua IP WAN, nên interface để là WAN.
 > Port cần forward là 8080 từ WAN → về 80 của LAN.
 
-### 2️⃣ Kiểm tra Rule tự động sinh ra
+### 2️. Kiểm tra Rule tự động sinh ra
 
 Sau khi lưu xong, vào:
 
@@ -52,7 +52,7 @@ Firewall > Rules > WAN
 
 - Hệ thống sẽ tự động thêm một rule để cho phép traffic đi qua port forwarding.
 
-✅ Vậy là hoàn tất!
+Vậy là hoàn tất!
 
 Giờ bạn có thể truy cập:
 

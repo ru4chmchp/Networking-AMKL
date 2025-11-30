@@ -1,6 +1,6 @@
-# 🚦 Advanced Lab: Load-Balancing with Dual WAN on pfSense/Hot Backup
+# Advanced Lab: Load-Balancing with Dual WAN on pfSense/Hot Backup
 
-## 🗺️ Topology
+## Topology
 
 <div align="center">
 
@@ -10,15 +10,15 @@
 
 ---
 
-## 🎯 Mục tiêu
+## Mục tiêu
 
 Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lượng mạng qua hai đường WAN, giúp tăng hiệu suất, độ tin cậy và khả năng chịu lỗi của hệ thống.
 
 ---
 
-## 🛠️ Các bước thực hiện
+## Các bước thực hiện
 
-### 🔹 Bước 1: Tạo thêm card mạng (mô phỏng WAN2)
+### Bước 1: Tạo thêm card mạng (mô phỏng WAN2)
 
 - Mở **Virtual Network Editor** → Add Network → Gán **subnet** và **default gateway** cho card mạng mới.
 
@@ -38,7 +38,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 2: Tạo Cloud mới trong PNETLab
+### Bước 2: Tạo Cloud mới trong PNETLab
 
 - Tạo một **cloud mới** để mô phỏng WAN2 (adapter mới sẽ là `Cloud 1`).
 
@@ -50,7 +50,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 3: Cấu hình Router thứ 2 đi ra Cloud1
+### Bước 3: Cấu hình Router thứ 2 đi ra Cloud1
 
 - Tạo một router kết nối tới `Cloud 1` và gán IP thuộc mạng `192.168.214.0/24`.
 - Định tuyến mặc định qua cloud này.
@@ -63,7 +63,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 4: Tạo WAN2 trên pfSense
+### Bước 4: Tạo WAN2 trên pfSense
 
 - Kéo dây từ **pfSense** đến **Router 2** và đặt tên interface là `WAN2`.
 
@@ -75,7 +75,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 5: Cấu hình Gateway cho WAN2
+### Bước 5: Cấu hình Gateway cho WAN2
 
 - Vào phần **System → Routing → Gateway** để thêm gateway mới cho WAN2.
 
@@ -87,7 +87,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 6: Tạo Gateway Groups (Failover/Load Balance)
+### Bước 6: Tạo Gateway Groups (Failover/Load Balance)
 
 - Vào `System → Routing → Gateway Groups` → tạo nhóm gateway:
   - `Tier 1` cho cả 2 WAN nếu muốn cân bằng tải.
@@ -103,7 +103,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 7: Thêm Rule chuyển tiếp Dual Gateway
+### Bước 7: Thêm Rule chuyển tiếp Dual Gateway
 
 - Vào `Firewall → Rules → LAN` → chỉnh rule mặc định:
   - Nhấn **Advanced Options** → chọn Gateway Group thay vì default gateway.
@@ -117,7 +117,7 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-### 🔹 Bước 8: Kiểm tra hoạt động Load Balancing
+### Bước 8: Kiểm tra hoạt động Load Balancing
 
 - Thử **shutdown Router chính** để kiểm tra failover.
 - Nếu vẫn ping được ra `8.8.8.8` qua đường còn lại → thành công!
@@ -131,10 +131,10 @@ Triển khai **cân bằng tải (Load Balancing)** để phân phối lưu lư�
 
 ---
 
-## ✅ Kết luận
+## Kết luận
 
 Bạn đã hoàn thành mô hình **Dual WAN Load-Balancing** bằng pfSense. Đây là một kỹ năng quan trọng trong quản trị mạng giúp đảm bảo hệ thống hoạt động ổn định kể cả khi mất một đường kết nối.
 
 ---
 
-🧠 _Chúc bạn thực hành thành công!_
+_Chúc bạn thực hành thành công!_

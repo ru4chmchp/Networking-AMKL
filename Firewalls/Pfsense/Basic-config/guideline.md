@@ -1,12 +1,12 @@
-# 🛠️ Basic Configuration to Ping Over the Network and Join Interface pfSense
+# Basic Configuration to Ping Over the Network and Join Interface pfSense
 
-## 🎯 Mục tiêu
+## Mục tiêu
 
 Cấu hình router để có thể ping ra ngoài Internet bằng địa chỉ `8.8.8.8` và chuẩn bị kết nối pfSense.
 
 ---
 
-## 🧠 Tổng quan mô hình mạng
+## Tổng quan mô hình mạng
 
 Mô hình mạng gồm hai dải IP:
 
@@ -21,7 +21,7 @@ Mô hình mạng gồm hai dải IP:
 
 ---
 
-## ⚙️ Cấu hình router để kết nối Internet
+## Cấu hình router để kết nối Internet
 
 Để router có thể ra ngoài mạng, ta cần cấu hình định tuyến tĩnh. Nhưng trước hết, cần xác định:
 
@@ -36,11 +36,11 @@ Mô hình mạng gồm hai dải IP:
 
 </div>
 
-> ✅ Ví dụ: Default gateway là `172.16.214.2`.
+> Ví dụ: Default gateway là `172.16.214.2`.
 
 ---
 
-### 🧩 Cấu hình interface router
+### Cấu hình interface router
 
 Đặt địa chỉ IP cho cổng `Gig0/0` của router sao cho cùng lớp mạng với subnet NAT:
 
@@ -50,7 +50,7 @@ Router(config-if)# ip address 172.16.214.135 255.255.255.0
 Router(config-if)# no shutdown
 ```
 
-### 📌 Thiết lập định tuyến tĩnh
+### Thiết lập định tuyến tĩnh
 
 Câu lệnh định tuyến tĩnh để router ra ngoài mạng:
 
@@ -62,7 +62,7 @@ Router(config)# ip route 0.0.0.0 0.0.0.0 172.16.214.2
 
 + 172.16.214.2: default gateway (NAT) mà router sẽ chuyển tiếp.
 
-### ✅ Kiểm tra kết nối
+### Kiểm tra kết nối
 
 Dùng lệnh sau để kiểm tra:
 
@@ -78,13 +78,13 @@ Nếu ping thành công, cấu hình đã đúng. Nếu không:
 
 + Kiểm tra kết nối mạng máy ảo
 
-> 💡 Gợi ý: Nên dùng chế độ NAT để tránh xung đột mạng và dễ cấu hình hơn trong môi trường lab.
+> Gợi ý: Nên dùng chế độ NAT để tránh xung đột mạng và dễ cấu hình hơn trong môi trường lab.
 
 ---
 
-## 🛡️ Cấu hình cơ bản pfSense Firewall và truy cập Web Interface
+## Cấu hình cơ bản pfSense Firewall và truy cập Web Interface
 
-### 🚀 Khởi động pfSense và cấu hình Interface WAN, LAN
+### Khởi động pfSense và cấu hình Interface WAN, LAN
 
 <div align="center"> <img src="/images/WAN_LAN_interface.webp" alt="WAN and LAN Interface" width="100%"/> </div>
 
@@ -94,11 +94,11 @@ Nếu ping thành công, cấu hình đã đúng. Nếu không:
 
 + WAN: Interface hướng ra ngoài Internet.
 
-> ⚡ Lưu ý: Không thể truy cập giao diện Web pfSense qua cổng WAN vì để đảm bảo an toàn bảo mật, tránh bị hacker tấn công (bruteforce, exploit, ...)nên pfsense đã chặn truy cập web interface qua WAN interface.
+> Lưu ý: Không thể truy cập giao diện Web pfSense qua cổng WAN vì để đảm bảo an toàn bảo mật, tránh bị hacker tấn công (bruteforce, exploit, ...)nên pfsense đã chặn truy cập web interface qua WAN interface.
 
 ---
 
-### 🧹 Xử lý ban đầu khi chưa có Gateway
+### Xử lý ban đầu khi chưa có Gateway
 
 Sau khi gán IP cho LAN và WAN, pfSense chưa thể ping ra ngoài vì:
 
@@ -108,7 +108,7 @@ Sau khi gán IP cho LAN và WAN, pfSense chưa thể ping ra ngoài vì:
 
 + Chưa cấu hình Rule cho phép truy cập.
 
-✅ Để xử lý tạm thời:
+Để xử lý tạm thời:
 
 1. Vào shell pfSense (chọn Option 8 tại terminal).
   
@@ -125,11 +125,11 @@ route add default 10.10.10.1
 ```
 + 10.10.10.1 là địa chỉ IP của cổng Gi0/1 trên router.
 
->🔥 Đây chỉ là gán gateway tạm thời. Gán mặc định vĩnh viễn cần thực hiện qua Web Interface sau này.
+>Đây chỉ là gán gateway tạm thời. Gán mặc định vĩnh viễn cần thực hiện qua Web Interface sau này.
 
 ---
 
-### 🧪 Kiểm tra kết nối từ pfSense
+### Kiểm tra kết nối từ pfSense
 
 Tại shell pfSense:
 
@@ -140,7 +140,7 @@ ping 8.8.8.8
 
 ---
 
-## 🌉 Cấu hình định tuyến để truy cập Web Interface pfSense từ ngoài
+## Cấu hình định tuyến để truy cập Web Interface pfSense từ ngoài
 
 1. Định tuyến tĩnh trên Router
 
@@ -178,7 +178,7 @@ sudo ip route add 10.10.10.0/24 via 172.16.214.135
 sudo ip route add 192.168.10.0/24 via 172.16.214.135
 ```
 
-> ⚡ Lưu ý:
+> Lưu ý:
 
 + Phải định tuyến tới mạng 10.10.10.0/24 trước, rồi mới tới 192.168.10.0/24.
 
@@ -186,7 +186,7 @@ sudo ip route add 192.168.10.0/24 via 172.16.214.135
 
 ---
 
-### 🌐 Truy cập giao diện Web pfSense
+### Truy cập giao diện Web pfSense
 
 + Mở trình duyệt → nhập IP LAN của pfSense để truy cập WebGUI.
 

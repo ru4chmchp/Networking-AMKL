@@ -13,6 +13,7 @@
   - [Fortinet](https://github.com/ru4f/Networking-AMKL/blob/Lab/Firewalls/Fortinet/fortinet.md)
 - **Mornitoring**
   - Infrastructure
+    - [Netdata](https://github.com/ru4f/Networking-AMKL/blob/Lab/Mornitoring/Infrastructure/netdata.md)
   - Traffic
     - [PKTIG](https://github.com/ru4f/Networking-AMKL/blob/Lab/Mornitoring/Traffic/PKTIG.md)
 

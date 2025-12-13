@@ -403,7 +403,7 @@ Như đã biết thì `NSX Firewall` sẽ có nhưng lý do tại sao nên sử 
 
 ## Tính năng mạng và bảo mật khác
 
-### NHÓM TÍNH NĂNG MẠNG (NETWORKING FEATURES)
+### Nhóm tính năng mạng
 
 - NSX không chỉ bảo mật, nó còn tái định nghĩa lại cách chúng ta làm mạng (Network Virtualization).
   - Logical Switching (Chuyển mạch logic)
@@ -444,7 +444,7 @@ Như đã biết thì `NSX Firewall` sẽ có nhưng lý do tại sao nên sử 
 
   - Lưu ý chuyên gia: Với các nhu cầu cao cấp (WAF, GSLB), VMware khuyến nghị dùng NSX Advanced Load Balancer (Avi Networks), nhưng tính năng LB cơ bản tích hợp sẵn vẫn đủ dùng cho nhiều ứng dụng nội bộ.
 
-### NHÓM TÍNH NĂNG BẢO MẬT (SECURITY FEATURES)
+### Nhóm tính năng bảo mật
 
 - Đây là lý do chính khiến khách hàng "xuống tiền" mua NSX. Chúng ta gọi là Intrinsic Security (Bảo mật nội tại).
   - Segmentation (Phân đoạn mạng)
@@ -482,7 +482,7 @@ Như đã biết thì `NSX Firewall` sẽ có nhưng lý do tại sao nên sử 
 --------------------------------------------------------
 
 
-Phần này thuật ngữ tìm hiểu về NSX
+Phần này thuật ngữ tìm hiểu về NSX, em làm thêm nhưng em làm chưa xong
 
 
 

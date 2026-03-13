@@ -8,18 +8,19 @@
 
 - [Networking-AMKL](#networking-amkl)
   - [Mục Lục](#mục-lục)
-  - [VMware và Proxmox VE](#vmware-và-proxmox-ve)
+  - [VMwar](#vmware-và-proxmox-ve)
     - [VMware Workstation Pro là gì?](#vmware-workstation-pro-là-gì)
     - [Proxmox VE 8 là gì?](#proxmox-ve-8-là-gì)
     - [KVM/QEMU là gì?](#kvmqemu-là-gì)
-  - [So sánh VMware Workstation Pro và Proxmox VE 8](#so-sánh-vmware-workstation-pro-và-proxmox-ve-8)
+    - [VMware ESXi là gì?](#vmware-esxi-là-gì)
+  - [So sánh](#so-sánh-vmware-workstation-pro-vmware-esxi-và-proxmox-ve-8-kvmqemu)
   - [Tải File Cần Thiết](#tải-file-cần-thiết)
   - [Hướng Dẫn Cài Đặt](#hướng-dẫn-cài-đặt)
-    - [Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
     - [Cài Đặt VMware Workstation Pro](#cài-đặt-vmware-workstation-pro)
       - [Các bước cài đặt trên Linux](#các-bước-cài-đặt-trên-linux)
     - [Cài Đặt Proxmox VE 8 (Bare-metal)](#cài-đặt-proxmox-ve-8-bare-metal)
     - [Cài Đặt KVM/QEMU trên Linux](#cài-đặt-kvmqemu-trên-linux)
+    - [Cài Đặt VMware ESXi](#cài-đặt-vmware-esxi)
 
 ---
 
@@ -119,17 +120,6 @@
 
 ---
 
-## Hướng Dẫn Cài Đặt
-
-### Yêu Cầu Hệ Thống
-
-- CPU hỗ trợ ảo hóa (Intel VT-x / AMD-V)
-- RAM: Tối thiểu **8GB** (khuyến nghị **16GB** trở lên)
-- Dung lượng ổ cứng trống: **>= 50GB**
-- File cài đặt: `.iso` hoặc `.ova` hoặc `.qcow2`
-
----
-
 ### Cài Đặt VMware Workstation Pro
 
 > **Windows**: Cài đặt bình thường bằng file `.exe`  
@@ -198,4 +188,4 @@
 
 ### Cài Đặt VMware ESXi
 
-> - [Link](https://www.youtube.com/watch?v=dg9c_C-BCqU)
+> [Link](https://www.youtube.com/watch?v=dg9c_C-BCqU)

@@ -72,19 +72,39 @@
 
 ---
 
-## So sánh VMware Workstation Pro và Proxmox VE 8, KVM/QEMU
+---
 
-| Tiêu chí | VMware Workstation Pro | Proxmox VE 8 | KVM/QEMU |
-|---------|---------------------------|----------------|----------|
-| **Loại Hypervisor** | Type 2 (chạy trên OS) | Type 1 (bare-metal) | Type 1 (Linux kernel) |
-| **Cài đặt trên** | Windows / Linux (app desktop) | Máy chủ vật lý | Hệ điều hành Linux |
-| **Mục tiêu sử dụng** | Desktop / Lab cá nhân | Server / Hạ tầng production | Server / Cloud / Enterprise |
-| **Hiệu năng** | Trung bình | Cao | Rất cao |
-| **Giao diện** | GUI Desktop | Web-based GUI | CLI + Various GUIs |
-| **Hỗ trợ Container (LXC)** | Không | Có | Có (qua libvirt) |
-| **Hỗ trợ KVM / QEMU** | Không | Có (sử dụng KVM) | Native |
-| **Cluster, HA, Live migration** | Không | Có | Có |
-| **Chi phí** | Trả phí (gần đây miễn phí) | Miễn phí (bản enterprise có phí) | Hoàn toàn miễn phí |
+### VMware ESXi là gì?
+
+**VMware ESXi** là một nền tảng ảo hóa Type 1 hypervisor (bare-metal) do VMware phát triển. ESXi được cài đặt trực tiếp lên phần cứng vật lý của máy chủ, cho phép chạy nhiều máy ảo với hiệu năng cao và độ ổn định lớn.
+
+> Khác với VMware Workstation Pro, ESXi được thiết kế cho môi trường server và datacenter.
+
+> **Tính năng nổi bật:**
+>
+> - Cài trực tiếp lên phần cứng (bare-metal)
+> - Quản lý nhiều VM trên một host
+> - Tích hợp với VMware vCenter Server để quản lý nhiều ESXi host
+> - Hỗ trợ Live Migration (vMotion)
+> - Snapshot và backup VM
+> - Hỗ trợ High Availability (HA) và Distributed Resource Scheduler (DRS)
+
+---
+
+## So sánh VMware Workstation Pro, VMware ESXi và Proxmox VE 8, KVM/QEMU
+
+| Tiêu chí              | VMware Workstation Pro | Proxmox VE 8        | VMware ESXi           | KVM/QEMU           |
+| --------------------- | ---------------------- | ------------------- | --------------------- | ------------------ |
+| **Loại Hypervisor**   | Type 2                 | Type 1              | Type 1                | Type 1             |
+| **Cài đặt trên**      | Windows / Linux        | Bare-metal server   | Bare-metal server     | Linux              |
+| **Mục tiêu sử dụng**  | Desktop / Lab          | Server / Datacenter | Enterprise Datacenter | Cloud / Server     |
+| **Hiệu năng**         | Trung bình             | Cao                 | Rất cao               | Rất cao            |
+| **Giao diện quản lý** | Desktop GUI            | Web GUI             | Web GUI + vCenter     | CLI / GUI          |
+| **Cluster / HA**      | Không                  | Có                  | Có                    | Có                 |
+| **Live Migration**    | Không                  | Có                  | Có (vMotion)          | Có                 |
+| **Container (LXC)**   | Không                  | Có                  | Không                 | Không              |
+| **Chi phí**           | Trả phí / Free         | Miễn phí            | Trả phí               | Miễn phí           |
+| **Mức độ phổ biến**   | Lab cá nhân            | Homelab / SMB       | Enterprise            | Cloud / Enterprise |
 
 ---
 
@@ -95,6 +115,7 @@
 - [Google Drive (file OVA)](https://drive.google.com/drive/u/0/folders/1wC-rrIvU577-PyBZiMVC7315iHevf4v9)
 - [QEMU](https://www.qemu.org/download/)
 - [KVM](https://linux-kvm.org/page/Downloads)
+- [ESXi](https://www.vmware.com/products/cloud-infrastructure/vsphere)
 
 ---
 
@@ -174,3 +195,7 @@
 - [virsh](https://www.libvirt.org/manpages/virsh.html): CLI tool mạnh mẽ để quản lý
 - [Cockpit](https://cockpit-project.org/): Web-based interface với plugin máy ảo
 - [flint](https://github.com/volantvm/flint?tab=readme-ov-file): Tool quản lý máy ảo kvm/qemu
+
+### Cài Đặt VMware ESXi
+
+> - [Link](https://www.youtube.com/watch?v=dg9c_C-BCqU)

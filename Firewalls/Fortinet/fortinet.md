@@ -60,5 +60,5 @@
 - Trang chủ Fortinet: [https://www.fortinet.com/](https://www.fortinet.com/)
 - Tài liệu FortiGate: [https://docs.fortinet.com/](https://docs.fortinet.com/)
 - Fortinet NSE Training: [https://training.fortinet.com/](https://training.fortinet.com/)
-
+- Slide thuyết trình : [Link](https://www.canva.com/design/DAHD6ocx5GE/0yDUz3ACE71d-94c3A9D0g/edit?utm_content=DAHD6ocx5GE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ---

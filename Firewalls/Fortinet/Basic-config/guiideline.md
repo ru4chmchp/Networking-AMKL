@@ -256,7 +256,7 @@ Tiến hành ping lại
 
 </div>
 
-Vậy là ping thành công chứng tỏ hoạt động, check trên switch
+Vậy là ping thành công chứng tỏ hoạt động.
 
 
 

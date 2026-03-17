@@ -9,7 +9,7 @@
   - Fortinet
     - [Lab](https://github.com/ru4f/Networking-AMKL/tree/Lab/Firewalls/Fortinet) 
   - VMware NSX
-    - [Lab](https://github.com/ru4f/Networking-AMKL/tree/Lab/Firewalls/`VMware NSX`)
+    - [Lab](https://github.com/ru4f/Networking-AMKL/tree/Lab/Firewalls/VMware-NSX)
 - **Mornitoring**
   - Infrastructure
     - [Netdata](https://github.com/ru4f/Networking-AMKL/blob/Lab/Mornitoring/Infrastructure/netdata.md)

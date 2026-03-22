@@ -1,6 +1,6 @@
 Đầu tiên lab này thực hiện cần cài đặt một số thứ sau:
 
-1. PNETLAB
+1. PNETLAB và Ishare2
 Để cài được PNETLAB, ở đây mình xin cài PNETLAB version 6, được cài từ ubuntu 20.04 build lên
     Đầu tiên chúng ta sẽ tải image ubuntu server 20.04 về và run như cài máy ảo bình thường sau đó chúng ta, sau đó
     ```bash

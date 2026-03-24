@@ -1,0 +1,1 @@
+Cấu hình tính năng SSL Decryption để giải mã các traffic được mã hóa để nhằm kiểm tra sau vào dữ liệu khi đi qua NGFW (bao gồm Outbound Inspection traffic từ bên trong đi Internet và Inbound Inspection traffic từ bên ngoài vào server nội bộ)

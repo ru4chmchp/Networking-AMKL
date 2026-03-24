@@ -1,1 +1,1 @@
-https://securityzone.vn/t/lab-03-thuc-hien-ang-ky-vcenter-voi-nsx-manager.12784/
+https://securityzone.vn/t/lab-04-thuc-hien-tao-ip-pool-cho-tunnel-endpoint.12785/

@@ -89,3 +89,5 @@ Ví dụ thực tế:
 - FortiGate A kết nối FortiGate B. Khi B có mạng mới → A tự biết mà không cần config thêm
 - Giảm công sức quản trị rất nhiều so với static route
 
+
+

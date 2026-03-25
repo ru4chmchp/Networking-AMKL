@@ -15,6 +15,11 @@
        wget -O /usr/sbin/ishare2 https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2 && chmod +x /usr/sbin/ishare2 && ishare2
     ```
     Cài tiếp tục xong là hoàn thành bước chuẩn bị cho PNETLAB
+    Trước khi chạy thì ta cần tải một số package bị thiếu trong quá trình install
+    ```bash
+       sudo apt install libsdl2-dev libsdl2-2.0-0 -y;
+    ```
+    Vậy là xong, có thể sử dụng
 
 <div align="center">
 

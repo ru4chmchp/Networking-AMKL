@@ -22,7 +22,5 @@
     Vậy là xong, có thể sử dụng
 
 <div align="center">
-
   <img src="/images/image154.png" alt="Network Topology" width="100%"/>
-
 </div>

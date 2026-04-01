@@ -81,7 +81,7 @@ Hiểu đơn giản: Các router “nói chuyện với nhau” để biết đ�
 Đặc điểm:
 - Tự động học route
 - Tự cập nhật khi mạng thay đổi
-- Dựa trên thuƯật toán SPF (Shortest Path First)
+- Dựa trên thuật toán SPF (Shortest Path First)
 - Phù hợp mạng lớn, nhiều thiết bị
 
 Ví dụ thực tế:
@@ -89,5 +89,101 @@ Ví dụ thực tế:
 - FortiGate A kết nối FortiGate B. Khi B có mạng mới → A tự biết mà không cần config thêm
 - Giảm công sức quản trị rất nhiều so với static route
 
+Tiếp đến là cấu hình
+
+<div align="center">
+  <img src="/images/image317.png" alt="Network Topology" width="100%"/>
+</div>
+
+Đầu tiên ta sẽ vào cấu hình FGT trước : 
+
+<div align="center">
+  <img src="/images/image318.png" alt="Network Topology" width="100%"/>
+</div>
 
 
+Sau đó cấu hình routing OSPF
+
+<div align="center">
+  <img src="/images/image319.png" alt="Network Topology" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="/images/image320.png" alt="Network Topology" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="/images/image321.png" alt="Network Topology" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="/images/image322.png" alt="Network Topology" width="100%"/>
+</div>
+
+Tiếp đến config Policy cho phep 2 lan ping nhau
+
+<div align="center">
+  <img src="/images/image323.png" alt="Network Topology" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="/images/image324.png" alt="Network Topology" width="100%"/>
+</div>
+
+Tiếp đến cấu hình router area1 phần interface
+
+<div align="center">
+  <img src="/images/image325.png" alt="Network Topology" width="100%"/>
+</div>
+
+Cấu hình OSPF multi area
+
+<div align="center">
+  <img src="/images/image326.png" alt="Network Topology" width="100%"/>
+</div>
+
+Tiếp đến cấu hình router area2 phần interface
+
+<div align="center">
+  <img src="/images/image327.png" alt="Network Topology" width="100%"/>
+</div>
+
+Cấu hình OSPF multi area
+
+<div align="center">
+  <img src="/images/image328.png" alt="Network Topology" width="100%"/>
+</div>
+
+Sau dó tiến hành kiểm tra Fortigate : 
+
+<div align="center">
+  <img src="/images/image329.png" alt="Network Topology" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="/images/image330.png" alt="Network Topology" width="100%"/>
+</div>
+
+Kiểm tra trên Cisco Router area1
+
+<div align="center">
+  <img src="/images/image331.png" alt="Network Topology" width="100%"/>
+</div>
+
+Kiểm tra trên Cisco Router area2
+
+<div align="center">
+  <img src="/images/image332.png" alt="Network Topology" width="100%"/>
+</div>
+
+Tiến hành ping từ lan1 sang lan2 và từ lan2 sang lan1
+
+<div align="center">
+  <img src="/images/image333.png" alt="Network Topology" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="/images/image334.png" alt="Network Topology" width="100%"/>
+</div>
+
+Done

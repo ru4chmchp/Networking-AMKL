@@ -1,1 +1,0 @@
-Cấu hình VPN Remote cho phép người dùng kết nối vào hệ thống nội bộ sử dụng AD (Active Directory) hoặc user local tạo trên NGFW

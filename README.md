@@ -16,6 +16,6 @@
   - Traffic
     - [PKTIG](https://github.com/ru4f/Networking-AMKL/blob/Lab/Mornitoring/Traffic/PKTIG.md)
 - **NAC**
-  - Forescount
-    - [Lab](https://github.com/ru4f/Networking-AMKL/tree/Lab/NAC/Forescount)
+  - Forescout
+    - [Lab](https://github.com/ru4f/Networking-AMKL/tree/Lab/NAC/Forescout)
 ---

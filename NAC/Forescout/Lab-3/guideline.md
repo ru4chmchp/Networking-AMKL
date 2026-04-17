@@ -42,6 +42,10 @@ Trường hợp KHÔNG kích hoạt Failover: Việc dịch vụ Forescout bị 
 
 License: Nếu triển khai theo giấy phép **Flexx Licensing**, tính năng HA cho Appliances bắt buộc phải có license **Forescout Platform eyeRecover**. Tuy nhiên, đối với tính năng HA trên Enterprise Manager thì đã được bao gồm sẵn trong license eyeSight
 
+<div align="center">
+  <img src="/images/image434.png" alt="Network Topology" width="100%"/>
+</div>
+
 Thiết bị không hỗ trợ HA: Các dòng thiết bị sau không được hỗ trợ để chạy HA: `CT-R, VCT-R, 4130, 5110 và Flexx Virtual cấu hình x-small`
 
 Điều kiện chuyển đổi thiết bị thành HA: Để cấu hình hai thiết bị thành một cặp HA, cả hai phải có số lượng cổng Ethernet bằng nhau, dung lượng ổ đĩa của node Secondary tối thiểu phải bằng hoặc lớn hơn node Primary, và cả hai phải chạy cùng một phiên bản Forescout Platform

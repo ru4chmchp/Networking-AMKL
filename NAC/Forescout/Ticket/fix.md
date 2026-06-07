@@ -11,6 +11,9 @@ Bài viết này sẽ tổng hợp các lỗi phổ biến mình đã gặp tron
 3. [Cấu hình SPAN PORT thiết bị Cisco PNETLAB]()
 4. [Cấu hình Radius setting]()
 5. [Cấu hình Switch ở mode HA Active Passive Forescout]()
+6. [Lưu ý khi cấu hình RADIUS]()
+7. [Lỗi không vào web portal bằng FQDN]()
+8. [Viết app tích hợp nhưng không thể import vào plugin connect]()
 
 
 
@@ -122,7 +125,7 @@ Sau đó `fstool radiusd restart`, đợi một chút
 oke done
 
 
-## 4. Cấu hình Switch ở mode HA Active Passive Forescout
+## 5. Cấu hình Switch ở mode HA Active Passive Forescout
 
 Nếu ta connect với switch ở mode HA thì có lỗi như này đối với các dòng switch cisco cũ
 
@@ -160,3 +163,50 @@ update-crypto-policies --set LEGACY
 ```
 
 sau đó thử lại là được.
+
+## 6. Lưu ý khi cấu hình RADIUS
+
+​<div align="center">
+  <img src="/images/image519.png" alt="Network Topology" width="100%"/>
+</div>
+
+Nếu không nhấn vào set null thì phải nhập full domain khi test như : dungnh@lab.intern
+
+​<div align="center">
+  <img src="/images/image520.png" alt="Network Topology" width="100%"/>
+</div>
+
+Nếu như muốn test và kiểm tra thì phải bật PAP-Authentication lên
+
+​<div align="center">
+  <img src="/images/image521.png" alt="Network Topology" width="100%"/>
+</div>
+
+Tiếp theo phải tạo thêm rule trên, xác thực của máy tính laptop sẽ là peap.
+
+Và xóa rule deny access cho user
+
+​<div align="center">
+  <img src="/images/image522.png" alt="Network Topology" width="100%"/>
+</div>
+
+## 7. Lỗi không vào web portal
+
+​<div align="center">
+  <img src="/images/image527.png" alt="Network Topology" width="100%"/>
+</div>
+
+```bash
+fstool set_property fs.httpd.extra.hosts "<fqdn>"
+fstool www restart
+```
+
+```bash 
+example : fstool set_property fs.httpd.extra.hosts "forescout.lab.intern"
+```
+
+## 8. Với các app chưa authorize thì cần 
+
+```bash
+fstool allow_unsigned_connect_app_install true
+```

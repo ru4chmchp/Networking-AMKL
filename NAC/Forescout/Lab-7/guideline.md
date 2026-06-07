@@ -168,12 +168,14 @@ eap profile <profile name>
 int <interface>
     switchport mode access
     switchport access vlan <vlan id>
-    dot1x authenticator profile name FS
+    spanning-tree portfast edge
+    dot1x authenticator profile name <profile name>
     dot1x pae authenticator
     dot1x timeout tx-period 15
     dot1x max-req 3
     dot1x max-reauth-req 3
     dot1x timeout auth-period 60
+    authentication violation restrict
     authentication event fail action authorize vlan <vlan id>
     authentication event no-response action authorize vlan <vlan id>
     authentication order dot1x

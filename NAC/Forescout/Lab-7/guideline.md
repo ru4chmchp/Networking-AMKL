@@ -111,15 +111,17 @@ Done
 ### 2.1 Cấu hình SSH
 
 ```bash
-ip domain name <dommain name>
-username admin privilege 15 secret <passsword>
-crypto key generate rsa modulus 2048 
+
+! --- 1. CẤU HÌNH ĐIỀU KIỆN CẦN ĐỂ TẠO KEY SSH ---
+ip domain-name <domain_name>
+
+! Tạo tài khoản admin local có quyền cao nhất (Privilege 15)
+username admin privilege 15 secret <password>
+
+! --- 2. TẠO KEY RSA VÀ BẬT SSH VERSION 2 ---
+! Lưu ý: Nếu Switch hỏi có muốn ghi đè key cũ không, hãy chọn 'yes'
+crypto key generate rsa modulus 2048
 ip ssh version 2
-line vty 0 15
-    transport input ssh
-    login local
-    privilege level 15
-    exit
 ```
 
 ### 2.2 Cấu hình SNMP
@@ -141,48 +143,55 @@ snmp-server enable traps
 
 ```bash
 aaa new-model
-aaa authentication login default local
+
+! --- 1. ĐỊNH NGHĨA RADIUS SERVER ---
+radius-server vsa send 
 radius server <radiusname>
-    address ipv4 <ip radius server> auth-port <port-auth> acct-port <port-acct>
-    key <share-key>
-    exit
-radius-server dead-criteria time 10 tries 1
-radius-server source-ports extended
-radius-server deadtime 30 
-radius-server attribute 32 include-in-access-req
-radius-server vsa send cisco-nas-port
+ address ipv4 <ip radius server> auth-port 1812 acct-port 1813
+ key <share-key>
+ exit
+
+! --- 2. GÔM SERVER VÀO GROUP ---
 aaa group server radius <groupname>
-    server name <radiusname>
-    exit
+ server name <radiusname>
+ exit
+
+! --- 3. CẤU HÌNH AAA (AUTHENTICATION / AUTHORIZATION / ACCOUNTING) ---
+! Đăng nhập Switch: Ưu tiên local, sập thì dùng group
+aaa authentication login default local group <groupname>
+
+! Sửa lỗi % Error in authentication khi gõ lệnh 'enable'
+aaa authentication enable default enable group <groupname>
+
+! Cấp quyền User (Shell Access)
+aaa authorization exec default local group <groupname> 
+
+! Xác thực và Cấp quyền cho thiết bị cắm đầu cuối (802.1X / MAC-Auth)
 aaa authentication dot1x default group <groupname>
 aaa authorization network default group <groupname>
 aaa accounting dot1x default start-stop group <groupname>
-dot1x system-auth-control
-aaa server radius dynamic-author
-    exit
-aaa session-id common
 
-eap profile <profile name>
-    method peap
-    exit
-int <interface>
-    switchport mode access
-    switchport access vlan <vlan id>
-    spanning-tree portfast edge
-    dot1x authenticator profile name <profile name>
-    dot1x pae authenticator
-    dot1x timeout tx-period 15
-    dot1x max-req 3
-    dot1x max-reauth-req 3
-    dot1x timeout auth-period 60
-    authentication violation restrict
-    authentication event fail action authorize vlan <vlan id>
-    authentication event no-response action authorize vlan <vlan id>
-    authentication order dot1x
-    authentication priority dot1x
-    authentication port-control auto
-    authentication periodic
-    authentication timer reauththenticate 60
+! --- 4. KÍCH HOẠT 802.1X VÀ COA (DYNAMIC AUTHORIZATION) ---
+dot1x system-auth-control
+
+aaa server radius dynamic-author
+ client <CLEARPASS_VIP> server-key <SHARED_KEY>
+ port 3799
+ auth-type all
+ exit
+
+! --- 3. ÁP DỤNG VÀO CÁC ĐƯỜNG VTY (SSH ACCESS) ---
+line vty 0 4
+ ! Sử dụng danh sách AAA default để xác thực (Đã sửa ở phần trước)
+ login authentication default
+ 
+ ! BẮT BUỘC: Thêm dòng này để đồng bộ quyền Privilege 15 khi đăng nhập thành công
+ authorization exec default
+ 
+ ! Chỉ cho phép kết nối qua SSH, chặn hoàn toàn Telnet để bảo mật
+ transport input ssh
+ exit
+enable secret level 15 0 <password1>
 ```
 
 Tiếp đến add Switch như các bài trước và ở 802.1x, nhập secret là key ở phần radius server đã nhập khi nãy.
